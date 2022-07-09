@@ -3,19 +3,99 @@
   margin: 0;
   padding:0;
   font-family: 'Hind Madurai', Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
 }
 html{
   box-sizing: border-box;
 }
+img{
+  border-radius: 15px;
+}
 body{
 box-sizing: inherit;
+overflow-y: scroll;
+overflow-x: hidden;
 position: relative;
 background-color: #121212;
 color: #f0f0f0;
-overflow-y: scroll;
-overflow-x: hidden;
+
+
 }
+// cursor style
+.innerCursor{
+  position: fixed;
+  left: 10px;
+  width: 10px;
+  transform: translate(-50%,-50%);
+  background-color: #f0f0f0;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.5s, height 0.5s;
+}
+.innerCursor.grow{
+  height: 25px;
+  width: 25px;
+  transition: width 0.5s, height 0.5s;
+}
+.outerCursor{
+  position: fixed;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%,-50%);
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  border: 1px solid #f0f0f0;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transition: 0.1s ease;
+}
+.router-wrapper{
+  grid-column: center-start / center-end;
+}
+.banner-section{
+height: 100vh;
+border-right: 1px solid #3b3b3b;
+border-left : 1px solid #3b3b3b;
+}
+label{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.button{
+
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+.container-section{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  .secret-message{
+    color:  #121212;
+  }
+  .login-form{
+    margin-top: 10vh;
+  }
+  .bottom-caption{
+    margin-top: 15vh;
+  }
+  .video-container{
+    margin: 10px;
+  }
+  .logout{
+    margin: 10px;
+  }
+  padding: 0 20px;
+  border-right: 1px solid #3b3b3b;
+  border-left : 1px solid #3b3b3b;
+}
+
 .main{
+  height: 100vh;
   display: grid;
   grid-template-columns: [full-start] minmax(100px,1fr) [center-start] repeat(12, [col-start]minmax(min-content,120px)[col-end])[center-end] minmax(100px,1fr)[full-end];
   grid-template-rows: min-content calc(100vh - 200px) 50vh;
@@ -23,7 +103,6 @@ overflow-x: hidden;
 .header{
   border-right: 1px solid  #3b3b3b;
   border-left: 1px solid  #3b3b3b;
-
   grid-column: center-start / center-end;
   grid-row: 1/2;
   display: grid;
@@ -41,9 +120,19 @@ overflow-x: hidden;
   grid-template-columns: repeat(8, 1fr);
   position: relative;
 }
+.container{
+  padding: 0 20px;
+  height: 100%;
+  border-right: 1px solid #3b3b3b;
+  border-left : 1px solid #3b3b3b;
+  grid-column: full-start/ full-end;
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  position: relative;
+}
 .second-section{
   padding: 0 20px;
-  height: 100vh;
   grid-template-rows: 200px;
   border-right: 1px solid #3b3b3b;
   border-left : 1px solid #3b3b3b;
@@ -56,6 +145,7 @@ overflow-x: hidden;
     font-size: 2.5rem;
     letter-spacing: 1.5rem;
     grid-column: 1/9;
+    grid-row: 1/2;
     justify-self:center;
   }
   .paragraph{
@@ -65,22 +155,36 @@ overflow-x: hidden;
     font-weight: 300;
     text-align: justify;
     .span-paragraph{
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 1.1rem;
     }
+  }
+  .head-paragraph{
+    font-size: 2rem;
+    letter-spacing: 0.4rem;
+    font-weight: 500;
+    grid-column: 2/8;
+    grid-row: 1/2;
+align-self: end;
+  }
+  .span-color{
+    color: #6E85B7;
   }
 
 }
 .band-section{
-  padding: 0 20px;
+    padding: 0 20px;
   height: 100%;
   border-right: 1px solid #3b3b3b;
   border-left : 1px solid #3b3b3b;
   grid-column: center-start / center-end;
   grid-row: 3/4;
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(8, 1fr);
   position: relative;
+  justify-content: space-around;
   .crypto-api, .spotify-api{
+
     grid-column: 1/9;
     align-self: center;
     justify-self: center;
@@ -94,8 +198,8 @@ overflow-x: hidden;
 .profile-thumb-round{
   background-image: url(assets/images/profile1.png);
   background-size: cover;
-  height: 300px;
-  width: 300px;
+  height: 150px;
+  width: 150px;
   grid-row: 1/2;
   grid-column: 4/6;
   align-self: center;
@@ -119,7 +223,15 @@ overflow-x: hidden;
     padding: 15px;
 
   }
+  .social__link{
+    transition: all 0.5 linear;
+  }
+  .social__link:hover .social__i{
+    text-decoration: none;
+    color: cornflowerblue;
+  }
 }
+
 .info{
   grid-row: 3/4;
   grid-column: 1/9;
@@ -133,6 +245,18 @@ overflow-x: hidden;
   font-weight: 100;
   letter-spacing: 1rem;
 }
+
+}
+
+.visuels{
+  width: 500px;
+  height: 500px;
+  grid-column: 2/8;
+  grid-row: 3/4;
+}
+.paragraph{
+  grid-column: 5/9;
+  grid-row: 2/3;
 }
 .menu{
   grid-row: 1/2;
@@ -140,7 +264,7 @@ overflow-x: hidden;
   list-style-type: none;
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(200px, min-content));
+  grid-template-columns: repeat(auto-fit, minmax(100px, min-content));
   &__item{
     padding: 15px 20px;
   }
@@ -154,9 +278,38 @@ overflow-x: hidden;
 .menu-right{
   grid-row: 1/ 2;
   grid-column: 5/-1;
+  display: flex;
+  padding: 15px 20px;
+  .login_link:hover{
+    transition: all 0.4s ease;
+    transform: scaleY(-1);
+  }
 }
+a{
+  position: relative;
+    text-decoration: none;
+  color: #f0f0f0;
+}
+a:hover {
+  text-decoration: none;
+  color: #f0f0f0;
+}
+
+a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #f0f0f0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+a:hover::before {
+  transform: scaleX(1);
+}
+
 /* You can add global styles to this file, and also import other style files */
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

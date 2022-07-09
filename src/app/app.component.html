@@ -1,40 +1,20 @@
+
 <div class="main">
+  <div class="innerCursor"></div>
+  <div class="outterCursor"></div>
   <header class="header">
-    <ul class="menu">
-      <li class="menu__item"><a class="menu__link">Accueil</a></li>
-      <li class="menu__item"><a class="menu__link">Me :)</a></li>
-      <li class="menu__item"><a class="menu__link">Works</a></li>
+      <ul class="menu">
+        <li class="menu__item"><a href="" class="menu__link">Accueil</a></li>
+        <li class="menu__item"><a href="#section1"class="menu__link">Me :)</a></li>
+      </ul>
+      <ul class="menu menu-right">
+        <li class="menu__item" class="login_link"><a href="/Login"  class="menu__link" routerLink="Login">secretpage???</a></li>
+      </ul>
+    </header>
 
-    </ul>
-    <ul class="menu menu-right">
-      <li class="menu__item"><a class="menu__link">Connecte-toi?</a></li>
-
-    </ul>
-
-  </header>
-  <section class="first-section">
-
-    <div class="profile-thumb-round"></div>
-    <ul class="social">
-      <li class="social__item"><a href="https://github.com/WeakedBUSH"><i class="fa-brands fa-github"></i></a></li>
-      <li class="social__item"><a href="https://www.linkedin.com/in/ramzi-aouimer-7714ba221/"><i class="fa-brands fa-linkedin"></i></a></li>
-    </ul>
-    <div class="info"><h1 class="heading-1"><span>-AOUIMER RAMZI-</span></h1>
-      <h3 class="subheading-1">Web Developer / Developer full stack</h3>
+    <div class="router-wrapper">
+      <router-outlet>
+      </router-outlet>
     </div>
-  </section>
-  <section class="band-section">
-    <div class="crypto-api">CRYPTO API</div>
-    <div class="spotify-api">SPOTIFY API</div>
-  </section>
-  <section class="second-section">
-      <h1 class="heading-1"> - Présentation -</h1>
-      <p class="paragraph">
-        Bonjour, je me présentes.<br /><br />
-        Je suis <span class="span-paragraph">Ramzi</span> actuellement étudiant à l'université de troyes, j'étudie actuellement en <span class="span-paragraph">DUT MMI</span>, je comptes futurement faire un Master en <span class="span-paragraph">cybersécurité</span>.<br /><br />
-
-Passionné depuis mon tout jeune âge à tout ce qui touche de près ou de loin <span class="span-paragraph">l'informatique</span>. J'ai décidé de devenir développeur <span class="span-paragraph">full stack</span> pour devenir une personne <span class="span-paragraph">polyvalente</span> dans son travail.
-      </p>
-  </section>
 </div>
 

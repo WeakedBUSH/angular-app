@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
-
+import { SecretpageComponent } from './secretpage/secretpage.component';
+import { HomeComponent } from './home/home.component';
+import { FormsModule }   from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from './_service/authentication.service';
 @NgModule({
 
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    SecretpageComponent,
   ],
   imports: [
-    MatIconModule,
-    MatSliderModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
+ BrowserModule,
+ AppRoutingModule,
+ FormsModule,
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

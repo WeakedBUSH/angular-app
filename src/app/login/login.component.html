@@ -1,0 +1,19 @@
+<section class="container-section">
+<div class="login-form">
+  <div class="row">
+    <div class="form-group col-md-12">
+      <label>Utilisateur</label>
+      <input type="text" [(ngModel)]="username" name="username" class="form-control" />
+    </div>
+    <div class="form-group col-md-12">
+      <label>Mot de passe</label>
+      <input type="password" [(ngModel)]="password" name="password" class="form-control" />
+    </div>
+    <div class="form-group col-md-3">
+      <button (click)="login()" class="btn btn-primary">Login</button>
+    </div>
+  </div>
+</div>
+<h3 class="bottom-caption">Pour avoir les identifiants trouve le texte caché sur cette page (indice : il est écrit en noir) ;)</h3>
+<h4 class="secret-message">patate123 patate123</h4>
+</section>
